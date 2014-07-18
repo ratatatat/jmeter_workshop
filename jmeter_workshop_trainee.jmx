@@ -40,7 +40,7 @@
             <bytes>true</bytes>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
@@ -107,7 +107,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="PrePostProcessorsSkeleton" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="PrePostProcessorsSkeleton" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -256,7 +256,7 @@
         </BeanShellSampler>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Load modelling" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -271,6 +271,15 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>4.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
         <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">true</boolProp>
@@ -336,16 +345,7 @@
           </hashTree>
         </hashTree>
       </hashTree>
-      <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
-        <intProp name="calcMode">0</intProp>
-        <doubleProp>
-          <name>throughput</name>
-          <value>4.0</value>
-          <savedValue>0.0</savedValue>
-        </doubleProp>
-      </ConstantThroughputTimer>
-      <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Load modelled from csv file" enabled="true">
         <stringProp name="TestPlan.comments">input from csv, loop executing requests like PSR</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -361,7 +361,7 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Traditional modelling type" enabled="true">
         <stringProp name="TestPlan.comments">requests executed sequentially with timers</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -388,7 +388,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Functions - scripted" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Functions - scripted" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -419,7 +419,7 @@ System.out.println(&quot;Time taken for scripted example: &quot; + endTime);</st
         </BeanShellSampler>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Functions - function" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Functions - function" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -442,7 +442,7 @@ System.out.println(&quot;Time taken for scripted example: &quot; + endTime);</st
         </BeanShellSampler>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="WebServices" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="WebServices" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -646,7 +646,26 @@ System.out.println(&quot;Time taken for scripted example: &quot; + endTime);</st
           <boolProp name="graph_aggregated">false</boolProp>
           <stringProp name="include_sample_labels"></stringProp>
           <stringProp name="exclude_sample_labels"></stringProp>
-          <collectionProp name="metricConnections"/>
+          <collectionProp name="metricConnections">
+            <collectionProp name="-585655679">
+              <stringProp name="1505998205">127.0.0.1</stringProp>
+              <stringProp name="1600768">4444</stringProp>
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-612455675">combined</stringProp>
+            </collectionProp>
+            <collectionProp name="-1295429743">
+              <stringProp name="1505998205">127.0.0.1</stringProp>
+              <stringProp name="1600768">4444</stringProp>
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="3151468">free</stringProp>
+            </collectionProp>
+            <collectionProp name="-1685208590">
+              <stringProp name="1505998205">127.0.0.1</stringProp>
+              <stringProp name="1600768">4444</stringProp>
+              <stringProp name="2112896831">Disks I/O</stringProp>
+              <stringProp name="108386717">reads</stringProp>
+            </collectionProp>
+          </collectionProp>
         </kg.apc.jmeter.perfmon.PerfMonCollector>
         <hashTree/>
       </hashTree>
@@ -654,7 +673,7 @@ System.out.println(&quot;Time taken for scripted example: &quot; + endTime);</st
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -681,13 +700,75 @@ System.out.println(&quot;Time taken for scripted example: &quot; + endTime);</st
           <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
         </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
         <hashTree/>
-        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Open main &apos;Objectivity&apos; page" enabled="true">
           <stringProp name="WebDriverSampler.script">WDS.sampleResult.sampleStart()&#xd;
-WDS.browser.get(&apos;http://google.com&apos;)&#xd;
-WDS.sampleResult.sampleEnd()</stringProp>
+WDS.browser.get(&apos;http://objectivity.pl&apos;)&#xd;
+WDS.sampleResult.sampleEnd()&#xd;
+&#xd;
+var f = WDS.browser.getTitle();&#xd;
+&#xd;
+if(f.indexOf(&apos;Objectivity&apos;) == -1 ) {&#xd;
+    WDS.sampleResult.setSuccessful(false)&#xd;
+    WDS.sampleResult.setResponseMessage(&apos;No Objectivity in page title&apos;)&#xd;
+}</stringProp>
           <stringProp name="WebDriverSampler.parameters"></stringProp>
         </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
         <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Open &apos;Our-people&apos; page" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)&#xd;
+var our_people = WDS.browser.findElement(pkg.By.cssSelector(&apos;a.tab.tab_14&apos;))&#xd;
+WDS.sampleResult.sampleStart()&#xd;
+our_people.click()&#xd;
+WDS.sampleResult.sampleEnd()&#xd;
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Click one of the tiles" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)&#xd;
+var tile = WDS.browser.findElement(pkg.By.cssSelector(&apos;a.tab.tab_50&apos;))&#xd;
+WDS.sampleResult.sampleStart()&#xd;
+tile.click()&#xd;
+WDS.sampleResult.sampleEnd()&#xd;
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Closing" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)&#xd;
+WDS.browser.switchTo().defaultContent()&#xd;
+var tile = WDS.browser.findElement(pkg.By.cssSelector(&apos;a.fancybox-item.fancybox-close&apos;))&#xd;
+WDS.sampleResult.sampleStart()&#xd;
+tile.click()&#xd;
+WDS.sampleResult.sampleEnd()&#xd;
+&#xd;
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Our services" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 10)&#xd;
+wait.until(pkg.ExpectedConditions.elementToBeClickable(pkg.By.cssSelector(&apos;div.menu_container  a.tab.tab_13&apos;)))&#xd;
+var tile = WDS.browser.findElement(pkg.By.cssSelector(&apos;div.menu_container  a.tab.tab_13&apos;))&#xd;
+&#xd;
+WDS.sampleResult.sampleStart()&#xd;
+tile.click()&#xd;
+WDS.sampleResult.sampleEnd()&#xd;
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
       </hashTree>
     </hashTree>
   </hashTree>
